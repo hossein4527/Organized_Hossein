@@ -38,8 +38,8 @@ class organ(object):
         
         df[(kind+'s',task)][start_timestamp:stop_timestamp - pd.Timedelta(hours=0.5)] = scale
 
-        df['Date'] = df.index.astype('str')
-        df.to_csv('timeline1' , index=False)
+        df['Date'] = df.index
+        df.T.to_csv('timeline1' , index=True)
         df.drop('Date', axis=1,inplace=True)
         # df = pd.read_csv('df_init')
         # df['Date'] = list(map(pd.Timestamp , df['Date']))
